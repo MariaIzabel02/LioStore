@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lio Store</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+               <a href="index.html" class="logo">
+                   <h1>LIO</h1>
+               </a>
+
+               <div class="menu">
+                   <ul>
+                        <li>
+                            <a href="carrinho.html">Carrinho</a>
+                         </li>
+                   </ul>
+                </div>
+            </div>
+        </nav>
+
+      <section class="hero">
+        <div class="container">
+            <form action=""  method="get" class="formBusca">
+                <input type="search" placeholder="Busque por produtos..." >
+                <button type="submit">Enviar</button>
+             
+            </form>
+        </div>
+      </section>  
+      
+    </header>
+    
+        <main>
+        <div class="container">
+            <br>
+            <h3>Galeria</h3>
+
+            <section class="produto" id= "produtos">
+                <article>
+                    <img src="Imagens/Vestido Malhado Simples.webp" alt="Vestido Preto" width="300" height="300" > 
+                    <h4>Vestido Malhado Simples</h4>
+                    <h4>R$ 79,89</h4>
+                    <label for="quantity">Quant.</label>
+                    <input type="number" name="quantity" id="quantity1" min="1" max="10" class="form-control">
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho( 'Vestido Malhado Simples', document.getElementById('quantity1').value, '79.89', 1)"> Adicionar ao carrinho </button>
+                </article>
+                <br>
+                <article>
+                    <img src="Imagens/Camiseta  Ziper Azul.webp" alt="T-Shirt Ziper"  width="300" height="300" >
+                    <h4>T-Shirt Ziper</h4>
+                    <h4>R$ 35,00</h4>
+                    <label for="quantity">Quant.</label>
+                    <input type="number" name="quantity" id="quantity2" min="1" max="10" class="form-control">
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('T-Shirt Ziper', document.getElementById('quantity2').value, '35.00', 2)">Adicionar ao carrinho </button>
+                </article>
+                <br>
+                <article>
+                    <img src="Imagens/Camiseta cosmic nature.webp" alt="Camiseta Cosmic" width="300" height="300" >
+                    <h4>Camiseta Cosmic Nature</h4>
+                    <h4>R$ 45,00</h4>
+                    <label for="quantity">Quant.</label>
+                    <input type="number" name="quantity" id="quantity3" min="1" max="10" class="form-control">
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Camiseta Cosmic Nature', document.getElementById('quantity3').value, '45.00', 3)">Adicionar ao carrinho </button>
+                </article>
+                <br>
+                <article>
+                    <img src="Imagens/Moletom Azul.webp" alt="Moletom Azul" width="300" height="300" >
+                    <h4>Moletom Azul</h4>
+                    <h4>R$ 65,00</h4>
+                    <label for="quantity">Quant.</label>
+                    <input type="number" name="quantity" id="quantity4" min="1" max="10" class="form-control">
+                    <button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Moletom Azul', document.getElementById('quantity4').value, '65.00', 4)">Adicionar ao carrinho </button>
+                      
+                </article>
+                <br>
+
+                
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        for (i in produtos){
+            t += "<li>"+produtos[i]+"</li>"
+            produtos[i] = produtos[i].toLowerCase()
+        }
+
+        produtos.innerHTML = t
+    </script>
+
+    <script>
+	function AddCarrinho(produto, quantity, valor, posicao)
+	{
+		localStorage.setItem("produto" + posicao, produto);
+		localStorage.setItem("quantity" + posicao, quantity);
+		valor = valor * quantity;
+		localStorage.setItem("valor" + posicao, valor);
+		alert("Produto adicionado ao carrinho!");
+	}
+    </script>
+
+    <footer>
+        <div class="container">
+            <p>Desenvolvido em Abril de 2021</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
